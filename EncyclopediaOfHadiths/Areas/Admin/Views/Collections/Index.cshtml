@@ -1,0 +1,72 @@
+﻿@model IEnumerable<EncyclopediaOfHadiths.Models.Collection>
+
+@{
+    ViewData["Title"] =@Localizer["Collections"];
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="text-right-rtl">
+<h1>@Localizer["Collections"]</h1>
+</div>
+
+
+
+
+                        <div class="card">
+                    <div class="card-header card-header-primary card-header-icon ">
+                        <div class="float-to-side">
+                      <div class="card-icon">
+                        <i class="material-icons">assignment</i>
+                      </div>
+                      </div>
+                      <div class="float-to-side title-right-rtl">
+                      <h2 class="card-title">@Localizer["Collections table"]</h2>
+                        <p>
+                            <a asp-action="Create">@Localizer["Add new collection"]</a>
+                        </p>
+                    </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="toolbar">
+                        <!--  Here you can write extra buttons/actions for the toolbar              -->
+                      </div>
+                      
+
+
+<div class="table-responsive justify-center">
+<table class="table" style="width:35%">
+    <thead style="background-color:#9c27b0;color:white;">
+        <tr style="text-align:right">
+            <th >
+                @Html.DisplayNameFor(model => model.CollectionTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CollectionAuthor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CollectionTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CollectionAuthor)
+            </td>
+            <td>
+                <div class="space-center">
+                <a asp-action="Edit" asp-route-id="@item.CollectionId">@Localizer["Edit"]</a> |
+                <a asp-action="Delete" asp-route-id="@item.CollectionId">@Localizer["Delete"]</a>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+                  </div>
+                <!-- end content-->
+              </div>
+              <!--  end card  -->
+            </div>

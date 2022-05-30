@@ -1,0 +1,60 @@
+﻿@model IEnumerable<EncyclopediaOfHadiths.Models.Narrator>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NarratorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NarratorWasBorned)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NarratorDied)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NarratorInfo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NarratorNote)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NarratorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NarratorWasBorned)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NarratorDied)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NarratorInfo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NarratorNote)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.NarratorId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.NarratorId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.NarratorId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

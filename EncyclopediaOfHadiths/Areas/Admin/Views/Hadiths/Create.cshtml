@@ -1,0 +1,81 @@
+﻿@model EncyclopediaOfHadiths.Models.Hadith
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="text-right-rtl">
+<h1>@Localizer["Create new Hadith"]</h1>
+
+
+</div>
+<hr />
+<div class="card">
+    
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="justify-start">
+                
+                <label asp-for="CollectionId" class="col-form-label col-xl-2"></label>
+                <div class="form-group col-xl-3">
+                <select asp-for="CollectionId" class ="selectpicker" data-style="select-with-transition" asp-items="ViewBag.CollectionId"></select>
+                </div>
+
+                
+                <label asp-for="HadithNo" class="col-form-label col-xl-3"></label>
+                <div class="form-group  col-xl-3">
+                <input asp-for="HadithNo" class="form-control" />
+                <span asp-validation-for="HadithNo" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="space-center">
+                <label asp-for="HadithText" class="col-xl-2 col-form-label"></label>
+            <div class="form-group col-xl-10">
+                <input asp-for="HadithText" class="form-control" type="text"/>
+                <span asp-validation-for="HadithText" class="text-danger"></span>
+            </div>
+
+                <label asp-for="VocabsExplain" class="col-form-label col-xl-2"></label>
+            <div class="form-group col-xl-10">
+                <input asp-for="VocabsExplain" class="form-control" />
+                <span asp-validation-for="VocabsExplain" class="text-danger"></span>
+            </div>
+            </div>
+            
+             <div class="justify-start">
+                 <label asp-for="ReviewTermId" class="col-form-label col-md-2"></label>
+            <div class="form-group col-md-3">
+                <select asp-for="ReviewTermId" class ="selectpicker" data-style="select-with-transition" asp-items="ViewBag.ReviewTermId">></select>
+            </div>
+
+                <label asp-for="HadithTypeId" class="col-form-label col-md-3"></label>
+            <div class="form-group col-md-3">
+                <select asp-for="HadithTypeId" class ="selectpicker" data-style="select-with-transition" asp-items="ViewBag.HadithTypeId"></select>
+            </div>
+            </div>
+
+            <div class="justify-center">
+            <label asp-for="NarratorsChainId" class="col-form-label"></label>
+            <div class="form-group">
+                <input asp-for="NarratorsChainId" class="form-control" />
+                <span asp-validation-for="NarratorsChainId" class="text-danger"></span>
+            </div>
+            </div>
+
+            <div class="form-group justify-center">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

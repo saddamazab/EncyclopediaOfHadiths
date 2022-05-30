@@ -1,0 +1,23 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = @Localizer["Register confirmation"];
+}
+
+<h1>@ViewData["Title"]</h1>
+@{
+    if (@Model.DisplayConfirmAccountLink)
+    {
+<p>
+    @Localizer["This app does not currently have a real email sender registered. will fix it later"]
+    @Localizer["Normally this would be emailed:"] <a id="confirm-link" href="@Model.EmailConfirmationUrl">@Localizer["Click here to confirm your account"]</a>
+</p>
+    }
+    else
+    {
+<p>
+        Please check your email to confirm your account.
+</p>
+    }
+}
+

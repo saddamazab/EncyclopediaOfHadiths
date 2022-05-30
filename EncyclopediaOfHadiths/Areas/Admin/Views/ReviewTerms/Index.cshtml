@@ -1,0 +1,64 @@
+﻿@model IEnumerable<EncyclopediaOfHadiths.Models.ReviewTerm>
+
+@{
+    ViewData["Title"] =@Localizer["Review terms"];
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="text-right-rtl">
+<h1>@Localizer["Review terms"]</h1>
+</div>
+
+
+
+                 <div class="card">
+                    <div class="card-header card-header-primary card-header-icon ">
+                        <div class="float-to-side">
+                      <div class="card-icon">
+                        <i class="material-icons">assignment</i>
+                      </div>
+                      </div>
+                      <div class="float-to-side title-right-rtl">
+                      <h2 class="card-title">@Localizer["Review terms table"]</h2>
+                        <p>
+                            <a asp-action="Create">@Localizer["Create new review term"]</a>
+                        </p>
+                    </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="toolbar">
+                        <!--  Here you can write extra buttons/actions for the toolbar              -->
+                      </div>
+
+
+
+<div class="table-responsive justify-center">
+<table class="table" style="width:35%">
+    <thead style="background-color:#9c27b0;color:white;">
+        <tr style="text-align:right">
+            <th>
+                @Html.DisplayNameFor(model => model.ReviewTermTitle)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReviewTermTitle)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ReviewTermId">@Localizer["Edit"]</a> |
+                <a asp-action="Delete" asp-route-id="@item.ReviewTermId">@Localizer["Delete"]</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+             </div>
+                <!-- end content-->
+              </div>
+              <!--  end card  -->
+            </div>

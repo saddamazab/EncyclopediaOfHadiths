@@ -1,0 +1,62 @@
+﻿@model EncyclopediaOfHadiths.Models.Hadith
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Hadith</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CollectionId" class="control-label"></label>
+                <select asp-for="CollectionId" class ="form-control" asp-items="ViewBag.CollectionId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HadithNo" class="control-label"></label>
+                <input asp-for="HadithNo" class="form-control" />
+                <span asp-validation-for="HadithNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HadithText" class="control-label"></label>
+                <input asp-for="HadithText" class="form-control" />
+                <span asp-validation-for="HadithText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VocabsExplain" class="control-label"></label>
+                <input asp-for="VocabsExplain" class="form-control" />
+                <span asp-validation-for="VocabsExplain" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReviewTermId" class="control-label"></label>
+                <input asp-for="ReviewTermId" class="form-control" />
+                <span asp-validation-for="ReviewTermId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HadithTypeId" class="control-label"></label>
+                <select asp-for="HadithTypeId" class ="form-control" asp-items="ViewBag.HadithTypeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="NarratorsChainId" class="control-label"></label>
+                <input asp-for="NarratorsChainId" class="form-control" />
+                <span asp-validation-for="NarratorsChainId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,56 @@
+﻿@model EncyclopediaOfHadiths.Models.Narrator
+
+@{
+    ViewData["Title"] =@Localizer["Edit"];
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="title-right-rtl">
+<h1>@Localizer["Edit"]</h1>
+
+<h4>@Localizer["Narrator"]</h4>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="NarratorId" />
+            <div class="form-group">
+                <label asp-for="NarratorName" class="control-label"></label>
+                <input asp-for="NarratorName" class="form-control" />
+                <span asp-validation-for="NarratorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NarratorWasBorned" class="control-label"></label>
+                <input asp-for="NarratorWasBorned" class="form-control" />
+                <span asp-validation-for="NarratorWasBorned" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NarratorDied" class="control-label"></label>
+                <input asp-for="NarratorDied" class="form-control" />
+                <span asp-validation-for="NarratorDied" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NarratorInfo" class="control-label"></label>
+                <input asp-for="NarratorInfo" class="form-control" />
+                <span asp-validation-for="NarratorInfo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NarratorNote" class="control-label"></label>
+                <input asp-for="NarratorNote" class="form-control" />
+                <span asp-validation-for="NarratorNote" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="@Localizer["Save"]" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="title-right-rtl">
+    <a asp-action="Index">@Localizer["Back to List"]</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

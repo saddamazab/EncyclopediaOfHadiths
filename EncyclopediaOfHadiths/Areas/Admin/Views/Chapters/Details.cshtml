@@ -1,0 +1,46 @@
+﻿@model EncyclopediaOfHadiths.Models.Chapter
+
+@{
+    ViewData["Title"] = @Localizer["Chapters details"];
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="title-right-rtl">
+
+<h1>@Localizer["Chapters details"]</h1>
+
+<div>
+    <h4>@Localizer["Full chapter details"] </h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ChapterTitle)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ChapterTitle)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ChapterVocabsExplain)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ChapterVocabsExplain)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ChapterExplainText)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ChapterExplainText)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Part)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Part.PartTitle)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ChapterId">@Localizer["Edit"]</a> |
+    <a asp-action="Index">@Localizer["Back to List"]</a>
+</div>
+</div>

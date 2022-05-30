@@ -1,0 +1,83 @@
+﻿@model IEnumerable<EncyclopediaOfHadiths.Models.Chapter>
+
+@{
+    ViewData["Title"] =@Localizer["Chapters"];
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="title-right-rtl">
+<h1>@Localizer["Chapters"]</h1>
+</div>
+
+                                <div class="card">
+                    <div class="card-header card-header-primary card-header-icon ">
+                        <div class="float-to-side">
+                      <div class="card-icon">
+                        <i class="material-icons">assignment</i>
+                      </div>
+                      </div>
+                      <div class="float-to-side title-right-rtl">
+                      <h2 class="card-title">@Localizer["Chapters table"]</h2>
+                        <p>
+                            <a asp-action="Create">@Localizer["Create new chapter"]</a>
+                        </p>
+                    </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="toolbar">
+                        <!--        Here you can write extra buttons/actions for the toolbar              -->
+                      </div>
+
+
+
+
+<div class="material-datatables">
+    <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+        <thead style="background-color:#9c27b0;color:white;">
+        <tr style="text-align:right">
+            <th>
+                @Html.DisplayNameFor(model => model.ChapterTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChapterVocabsExplain)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChapterExplainText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Part)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td class="addReadMore showlesscontent">
+                @Html.DisplayFor(modelItem => item.ChapterTitle)
+            </td>
+            <td class="addReadMore showlesscontent">
+                @Html.DisplayFor(modelItem => item.ChapterVocabsExplain)
+            </td>
+            <td class="addReadMore showlesscontent">
+                @Html.DisplayFor(modelItem => item.ChapterExplainText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Part.PartTitle)
+            </td>
+            <td>
+                
+                <a asp-action="Edit" asp-route-id="@item.ChapterId">@Localizer["Edit"]</a> |
+                <a asp-action="Details" asp-route-id="@item.ChapterId">@Localizer["Details"]</a> |
+                <a asp-action="Delete" asp-route-id="@item.ChapterId">@Localizer["Delete"]</a>
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+             </div>
+                <!-- end content-->
+              </div>
+              <!--  end card  -->
+            </div>

@@ -1,0 +1,115 @@
+﻿@*@model EncyclopediaOfHadiths.Models.NarratorsChain
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>NarratorsChain</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NarratorId" class="control-label"></label>
+                <select asp-for="NarratorId" class ="form-control" asp-items="ViewBag.NarratorId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="NarratorLevel" class="control-label"></label>
+                <select asp-for="NarratorLevel" class ="form-control" asp-items="ViewBag.NarratorLevel"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HadithId" class="control-label"></label>
+                <select asp-for="HadithId" class ="form-control" asp-items="ViewBag.HadithId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+*@
+
+
+@model EncyclopediaOfHadiths.Models.NarratorsChain
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>NarratorsChain</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" id="item-list">
+            <a href="#" id="add">Add</a>
+            <br />
+                   <label asp-for="HadithId" class ="items"></label>
+                <select asp-for="HadithId" class ="items" asp-items="ViewBag.HadithId" name="Narrator[0].HadithId"></select>
+
+                <label asp-for="NarratorId" class ="items"></label>
+                <select asp-for="NarratorId" class ="items" asp-items="ViewBag.NarratorId" name="Narrator[0].NarratorId"></select>
+            
+                <label asp-for="NarratorLevel" class ="items"></label>
+                <select asp-for="NarratorLevel" class ="items" asp-items="ViewBag.NarratorLevel" name="Narrator[0].NarratorLevel"></select>
+            
+
+                <br />
+                   <label asp-for="HadithId" class ="items"></label>
+                <select asp-for="HadithId" class ="items" asp-items="ViewBag.HadithId" name="Narrator[1].HadithId"></select>
+
+                <label asp-for="NarratorId" class ="items"></label>
+                <select asp-for="NarratorId" class ="items" asp-items="ViewBag.NarratorId" name="Narrator[1].NarratorId"></select>
+            
+                <label asp-for="NarratorLevel" class ="items"></label>
+                <select asp-for="NarratorLevel" class ="items" asp-items="ViewBag.NarratorLevel" name="Narrator[1].NarratorLevel"></select>
+            
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+            <script>
+                $(function () {
+                    $("#add").click(function (e) {
+                        e.preventDefault();
+                        var i = ($(".items").length) / 6;
+                        var m1 = '<br/>'+'<label asp-for="HadithId" class ="items"></label>'+'<select asp-for="HadithId" class ="items" asp-items="ViewBag.HadithId" name="Narrator['+i+'].HadithId"></select>';
+                        var m2 = '<label asp-for="NarratorId" class ="items"></label>'+'<select asp-for="NarratorId" class ="items" asp-items="ViewBag.NarratorId" name="Narrator[' + i + '].NarratorId"></select>';
+                        var m3 ='<label asp-for="NarratorLevel" class ="items"></label>'+'<select asp-for="NarratorLevel" class ="items" asp-items="ViewBag.NarratorLevel" name="Narrator[' + i + '].NarratorLevel"></select>';
+                        console.log(m1);
+                        $("#item-list").append(m1).append(m2).append(m3);
+                    });
+
+                });
+        </script>
+}

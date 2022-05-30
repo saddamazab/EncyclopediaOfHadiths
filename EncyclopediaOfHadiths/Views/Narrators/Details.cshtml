@@ -1,0 +1,49 @@
+﻿@model EncyclopediaOfHadiths.Models.Narrator
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Narrator</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NarratorName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NarratorName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NarratorWasBorned)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NarratorWasBorned)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NarratorDied)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NarratorDied)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NarratorInfo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NarratorInfo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NarratorNote)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NarratorNote)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.NarratorId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

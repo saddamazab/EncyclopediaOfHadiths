@@ -1,0 +1,151 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+        
+    }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 0px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        background-image: linear-gradient( 90deg, rgba(200, 200, 200, 0.9), rgba(240, 240, 240, 1) ), url(https://cdn.freecodecamp.org/testable-projects-fcc/images/survey-form-background.jpeg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+.card{
+    margin:30px;
+}
+
+.social li:hover {
+    color: #641971;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(133,133,133,0.3);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+.space-evenly {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.space-center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+.justify-start {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+.justify-center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+    .callout {
+        border: 1px solid rgba(133,133,133,0.3);
+        border-radius: 5px 5px 2px 2px;
+        border-right-width: 0.4rem;
+        margin: 5px 10px;
+        flex: 0 0 auto;
+        width: 22%;
+        border-right-color: #e5e5e5;
+        background-color: #ededed;
+    }
+
+.callout-info {
+    border-right-color: blue !important;
+    background-color: lightblue !important;
+}
+
+.callout-warning {
+    border-right-color: darkorange !important;
+    background-color: moccasin !important;
+}
+
+.callout-danger {
+    border-right-color: red !important;
+    background-color: pink !important;
+}
+
+.addReadMore.showlesscontent .SecSec,
+.addReadMore.showlesscontent .readLess {
+    display: none;
+}
+
+.addReadMore.showmorecontent .readMore {
+    display: none;
+}
+
+.addReadMore .readMore,
+.addReadMore .readLess {
+    margin-left: 2px;
+    color: #9c27b0;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight:bold;
+}
+
+.addReadMoreWrapTxt.showmorecontent .SecSec,
+.addReadMoreWrapTxt.showmorecontent .readLess {
+    display: block;
+}
+
+
+.col-form-label{
+    color:black;
+}
+
+selectpicker{
+    padding:0;
+    margin:0;
+}
+
+#selectCulture {
+    float:inline-start;
+}

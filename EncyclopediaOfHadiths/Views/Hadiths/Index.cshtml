@@ -1,0 +1,132 @@
+﻿@model IEnumerable<EncyclopediaOfHadiths.Models.Hadith>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+<h1>@Localizer["Individual Hadiths"]</h1>
+
+<p>
+    <a asp-action="Create">@Localizer["Create New Hadith"]</a>
+    
+</p>
+@foreach (var item in Model) {
+<div class="card text-center">
+  <div class="card-header">
+      <div class="space-center">
+    <p>@Html.DisplayNameFor(model => model.CollectionId): @Html.DisplayFor(modelItem => item.Collection.CollectionTitle)</p>
+    <p>@Html.DisplayNameFor(model => model.HadithNo): @Html.DisplayFor(modelItem => item.HadithNo)</p>
+        </div>
+</div>
+  <div class="card-body">
+    <h5 class="card-title">@Html.DisplayNameFor(model => model.HadithText)</h5>
+    <p class="card-text">@Html.DisplayFor(modelItem => item.HadithText).</p>
+    <div class="row align-items-end">
+                        <div class="space-center">
+                        
+                         
+                                    
+                                        
+                                            <div class=" callout @(@item.ReviewTermId==3 ? "callout-danger" : item.ReviewTermId==2?"callout-warning":"callout-info")">
+                                @MvcExtensions.GetReviewTerm(item.ReviewTermId)
+                                               </div>
+                                                
+                                            
+                        
+                        <div class=" callout ">
+                          
+                        </div>
+                        <div class=" callout ">
+                          @Html.DisplayFor(modelItem => item.HadithType.HadithTypeTitle)
+                        </div>
+                        </div>
+              </div>
+                
+
+                              <div class="accordion" id="accordion@(@Html.DisplayFor(modelItem => item.HadithNo))">
+                              <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne@(@Html.DisplayFor(modelItem => item.HadithNo))">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne@(@Html.DisplayFor(modelItem => item.HadithNo))" aria-expanded="false" aria-controls="collapseOne@(@Html.DisplayFor(modelItem => item.HadithNo))">
+                                     @Html.DisplayNameFor(model => model.VocabsExplain)
+                                  </button>
+                                </h2>
+                                <div id="collapseOne@(@Html.DisplayFor(modelItem => item.HadithNo))" class="accordion-collapse collapse" aria-labelledby="headingOne@(@Html.DisplayFor(modelItem => item.HadithNo))" data-bs-parent="#accordion@(@Html.DisplayFor(modelItem => item.HadithNo))">
+                                  <div class="accordion-body">
+                                      @Html.DisplayFor(modelItem => item.VocabsExplain)
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo@(@Html.DisplayFor(modelItem => item.HadithNo))">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo@(@Html.DisplayFor(modelItem => item.HadithNo))" aria-expanded="false" aria-controls="collapseTwo@(@Html.DisplayFor(modelItem => item.HadithNo))">
+                                    @Html.DisplayNameFor(model => model.NarratorsChainId)
+                                  </button>
+                                </h2>
+                                <div id="collapseTwo@(@Html.DisplayFor(modelItem => item.HadithNo))" class="accordion-collapse collapse" aria-labelledby="headingTwo@(@Html.DisplayFor(modelItem => item.HadithNo))" data-bs-parent="#accordion@(@Html.DisplayFor(modelItem => item.HadithNo))">
+                                  <div class="accordion-body">
+
+                                                  <table class="table">
+                                              <thead>
+                                                <tr>
+                                                  <th scope="col">@Localizer["Narrator Level"]</th>
+                                                  <th scope="col">@Localizer["Narrator Name"]</th>
+                                      
+                                                </tr>
+                                              </thead>
+                                              @foreach(var nitem in ViewBag.NarratorsChain){
+                                                  @if(item.HadithId==nitem.HadithId){
+                                              <tbody>
+                                                <tr>
+                                                  <th scope="row">@nitem.NarratorLevel</th>
+                                                  <td>@nitem.Narrator.NarratorName</td>
+                                      
+                                                </tr>
+                                                <tr>
+                                                    </tbody>
+                                                    }}
+                                                </table>
+
+
+
+
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree@(@Html.DisplayFor(modelItem => item.HadithNo))">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree@(@Html.DisplayFor(modelItem => item.HadithNo))" aria-expanded="false" aria-controls="collapseThree@(@Html.DisplayFor(modelItem => item.HadithNo))">
+                                    @Html.DisplayNameFor(model => model.HashTagId)
+                                  </button>
+                                </h2>
+                                <div id="collapseThree@(@Html.DisplayFor(modelItem => item.HadithNo))" class="accordion-collapse collapse" aria-labelledby="headingThree@(@Html.DisplayFor(modelItem => item.HadithNo))" data-bs-parent="#accordion@(@Html.DisplayFor(modelItem => item.HadithNo))">
+                                  <div class="accordion-body">
+                                            @foreach(var hitem in ViewBag.Hashtag)
+                                            {
+                                                @if(item.HadithId==hitem.HadithId){
+                                                <a href="#"><span>#</span>@hitem.HashTag.HashTagTitle</a><span>&nbsp; </span>
+                                                }
+                                                }
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+
+
+                <div class="space-center">
+                <a asp-action="Edit" asp-route-id="@item.HadithId">@Localizer["Edit"]</a> |
+                <a asp-action="Details" asp-route-id="@item.HadithId">@Localizer["Details"]</a> |
+                <a asp-action="Delete" asp-route-id="@item.HadithId">@Localizer["Delete"]</a>
+                </div>
+  </div>
+  <div class="card-footer text-muted">
+    @Localizer["2 days ago"]
+  </div>
+</div>
+
+}
+

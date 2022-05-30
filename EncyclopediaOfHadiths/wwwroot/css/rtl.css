@@ -1,0 +1,36 @@
+﻿html {
+    direction: rtl;
+    
+}
+.float-to-side {
+    float: right;
+    text-align: right;
+    
+}
+.text-right-rtl {
+    text-align: right;
+}
+
+.title-right-rtl {
+    margin-right:20px;
+    text-align: right;
+}
+td {
+    text-align: right;
+    direction: rtl;
+}
+
+.col-form-label {
+    text-align:left;
+    
+}
+.selectpicker{
+    text-align:right;
+    float:right;
+}
+
+dropdown-menu {
+    float: right;
+    right: 0;
+    text-align: right;
+}

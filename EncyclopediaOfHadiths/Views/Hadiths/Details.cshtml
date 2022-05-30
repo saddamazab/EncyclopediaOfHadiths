@@ -1,0 +1,61 @@
+﻿@model EncyclopediaOfHadiths.Models.Hadith
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Hadith</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HadithNo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HadithNo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HadithText)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HadithText)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VocabsExplain)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VocabsExplain)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReviewTermId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReviewTermId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NarratorsChainId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NarratorsChainId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Collection)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Collection.CollectionAuthor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HadithType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HadithType.HadithTypeTitle)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.HadithId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

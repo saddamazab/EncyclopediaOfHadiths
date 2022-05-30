@@ -1,0 +1,89 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+              @if (SignInManager.IsSignedIn(User))          {
+                  
+                    <div class="user">
+                      <div class="photo">
+                        <img src="~/assets/img/faces/avatar1.jpg" />
+                      </div>
+                      <div class="user-info">
+                        <a data-toggle="collapse" href="#collapseExample" class="username">
+                          <span>
+                            @User.Identity?.Name
+                            <b class="caret"></b>
+                          </span>
+                        </a>
+                        <div class="collapse" id="collapseExample">
+                          <ul class="nav">
+                    
+                            <li class="nav-item ">
+                             <a asp-area="Identity" asp-page="/Account/login" class="nav-link">
+                                 <i class=" material-icons">manage_accounts</i>
+                                <span class="sidebar-normal">
+                                    @Localizer["My profile"]
+                                </span>
+                                </a>
+                                </li>
+                            <li class="nav-item ">
+                             <a asp-area="Identity" asp-page="/Account/login" class="nav-link">
+                                 <i class=" material-icons">edit_note</i>
+                                <span class="sidebar-normal">
+                                    @Localizer["Authorizations"]
+                                </span>
+                                </a>
+                                </li>
+                            <li class="nav-item ">
+                             <a asp-area="Identity" asp-page="/Account/login" class="nav-link">
+                                 <i class=" material-icons">settings_suggest</i>
+                                <span class="sidebar-normal">
+                                    @Localizer["Settings"]
+                                </span>
+                                </a>
+                                </li>
+                                 <li class="nav-item ">
+                             <a asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" class="nav-link">
+                                 <i class=" material-icons">logout</i>
+                                <span class="sidebar-normal">
+                                    @Localizer["Logout"]
+                                </span>
+                                </a>
+                                </li>
+                                
+                          </ul>
+                        </div>
+                        </div>
+                      </div>
+                  
+        } else { 
+                        <div class="user">
+                            <div class="user-info">
+                                <a data-toggle="collapse" href="#collapseExample" class="username" style="display:none;">
+                                   
+                                </a>
+                                <div class="collapse show">
+                        <ul class="nav" style="padding-right:0;">
+                            <li class="nav-item">
+                     <a class="nav-link" asp-area="Identity" asp-page="/Account/Register" style="font-size:1.2em;">
+                         <i class="material-icons" style="font-size:1.2em;">person_add</i>
+                        <span class="sidebar-normal">
+                            @Localizer["Register"]
+                        </span>
+                        </a>
+                        </li>
+                    <li class="nav-item ">
+                     <a class="nav-link" asp-area="Identity" asp-page="/Account/login" style="font-size:1.2em;">
+                         <i class=" material-icons" style="font-size:1.2em;">login</i>
+                        <span class="sidebar-normal">
+                            @Localizer["Login"]
+                        </span>
+                        </a>
+                        </li>
+                        </ul>
+                        </div>
+                        </div>
+                        </div>
+            }
+
+
